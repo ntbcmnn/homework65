@@ -28,15 +28,20 @@ const Content = () => {
     void fetchData();
   }, [fetchData]);
 
-  return page && (
-    <div className="container">
-      {loading ? <Loader/> :
-        <div className="text-center d-flex flex-column align-items-center">
-          <h2 className="mb-4">{page.title}</h2>
-          <p className="w-50">{page.content}</p>
+  return (
+    <>
+      {page ?
+        <div className="container">
+          {loading ? <Loader/> :
+            <div className="text-center d-flex flex-column align-items-center">
+              <h2 className="mb-4">{page.title}</h2>
+              <p className="w-50">{page.content}</p>
+            </div>
+          }
         </div>
+        : <h2 className="text-center">Select a page from the upper menu to see the info</h2>
       }
-    </div>
+    </>
   );
 };
 
